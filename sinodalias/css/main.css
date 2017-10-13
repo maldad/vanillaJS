@@ -3,6 +3,18 @@ body {
   width : 90%;
   margin : 0 auto
 }
+
 table td {
   border: 3px solid green;
+}
+
+img {
+  text-align : center;
+  display : block;
+  margin : auto;
+}
+
+.header {
+  text-align : center;
+  margin : auto;
 }
