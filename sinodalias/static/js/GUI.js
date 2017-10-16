@@ -14,7 +14,7 @@ var GUI = (function (){
   };
 
   var sep = function(){
-    var img = HTML.newElement("img").setAttribute("src", "img/sep.jpg").
+    var img = HTML.newElement("img").setAttribute("src", "static/img/sep.jpg").
       setAttribute("width", 300).setAttribute("height", 150);
     var cont = HTML.newElement("div")
       .addClass("header")
@@ -23,7 +23,7 @@ var GUI = (function (){
   };
 
   var ito = function(){
-    var img = HTML.newElement("img").setAttribute("src", "img/ito.png").
+    var img = HTML.newElement("img").setAttribute("src", "static/img/ito.png").
       setAttribute("width", 100).setAttribute("height", 100);
     var cont = HTML.newElement("div")
       .addClass("header")

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sinodalias</title>
+  <script src="{{url_for('static', filename='js/lib/HTML.js')}}"></script>
+  <script src="{{url_for('static', filename='js/lib/HOF.js')}}"></script>
+  <script src="{{url_for('static', filename='js/GUI.js')}}"></script>
+  <script src="{{url_for('static', filename='js/process.js')}}"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/pure/pure-min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+</head>
+<body onload=GUI.createGui()>
+ <div id="mainPanel"></div>
+</body>
+</html>
