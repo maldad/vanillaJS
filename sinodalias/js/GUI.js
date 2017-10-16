@@ -112,10 +112,29 @@ var GUI = (function (){
     return form;
   };
 
+  var _acceptButton = function(){
+    var b = HTML.newElement("button")
+      .addClass("pure-button")
+      .setId("button1")
+      .setText("Aceptar");
+
+    var f = function(event){
+      console.log(Process.buildRegister());
+    };
+
+    b.element().addEventListener("click", f, false);
+    
+    var d = HTML.newElement("div")
+      .appendChild(b.element())
+      .setId("centerButton");
+    return d;
+  };
+
   var _createGui = function(){
     var panel = _getElement("mainPanel");
     panel.appendChild(_head().element());
     panel.appendChild(_form().element());
+    panel.appendChild(_acceptButton().element());
   };
 
   return{
