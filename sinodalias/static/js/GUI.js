@@ -118,8 +118,10 @@ var GUI = (function (){
       .setId("button1")
       .setText("Aceptar");
 
+    var url = "http://127.0.0.1:5000"
     var f = function(event){
-      console.log(Process.buildRegister());
+      var args = Process.buildRegister();
+      XHR.post(url, args);
     };
 
     b.element().addEventListener("click", f, false);
