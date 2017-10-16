@@ -14,6 +14,7 @@ var XHR = (function(){
     xhr.open('POST', url + "/post");
     xhr.setRequestHeader("Content-Type", "application/json")
     xhr.send(data);
+    var form = GUI.getElement("form1").reset();
   };
 
   return {
