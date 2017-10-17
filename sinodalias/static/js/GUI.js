@@ -45,14 +45,17 @@ var GUI = (function (){
       .setId("form1")
       .addClass("pure-form");
 
+
     form.appendChild(HTML.newElement("input")
         .addClass("pure-input-1-2")
         .setAttribute("name", "fecha")
         .setAttribute("placeholder", "Fecha:").element());
 
     form.appendChild(HTML.newElement("input")
+        .setId("ifolio")
         .addClass("pure-input-1-2")
         .setAttribute("name", "folio")
+        .setAttribute("readonly", "")
         .setAttribute("placeholder", "Folio:").element());
 
     form.appendChild(HTML.newElement("input")
@@ -118,7 +121,7 @@ var GUI = (function (){
       .setId("button1")
       .setText("Aceptar");
 
-    var url = "http://127.0.0.1:5000"
+    var url = "http://127.0.0.1:5000/post"
     var f = function(event){
       var args = Process.buildRegister();
       XHR.post(url, args);
@@ -137,11 +140,28 @@ var GUI = (function (){
     panel.appendChild(_head().element());
     panel.appendChild(_form().element());
     panel.appendChild(_acceptButton().element());
+
+    XHR.get("http://127.0.0.1:5000/get");
+  };
+
+  var _fillFolio = function(folio){
+    if(folio.length >= 4){
+      return folio;
+    }else{
+      return _fillFolio("0" + folio);
+    }
+  };
+
+  var _setFolio = function(folio){
+    var inputFolio = _getElement("form1").children[1];
+    var fol = parseInt(folio);
+    inputFolio.value = "Folio: " + _fillFolio(fol + 1);
   };
 
   return{
     "getElement" : _getElement,
-    "createGui" : _createGui
+    "createGui" : _createGui,
+    "setFolio" : _setFolio
   };
 
 })();
