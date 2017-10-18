@@ -14,8 +14,9 @@ var GUI = (function (){
   };
 
   var sep = function(){
-    var img = HTML.newElement("img").setAttribute("src", "static/img/sep.jpg").
-      setAttribute("width", 300).setAttribute("height", 150);
+    var img = HTML.newElement("img").setAttribute("src", "static/img/sep.png")
+      .setId("img1")
+      .setAttribute("width", 300).setAttribute("height", 150);
     var cont = HTML.newElement("div")
       .addClass("header")
       .addClass("pure-u-1-3").appendChild(img.element());
@@ -23,8 +24,9 @@ var GUI = (function (){
   };
 
   var ito = function(){
-    var img = HTML.newElement("img").setAttribute("src", "static/img/ito.png").
-      setAttribute("width", 100).setAttribute("height", 100);
+    var img = HTML.newElement("img").setAttribute("src", "static/img/ito.png")
+      .setId("img2")
+      .setAttribute("width", 100).setAttribute("height", 100);
     var cont = HTML.newElement("div")
       .addClass("header")
       .addClass("pure-u-1-3").appendChild(img.element());
@@ -124,6 +126,7 @@ var GUI = (function (){
     var f = function(event){
       var args = Process.buildRegister();
       XHR.post(url, args);
+      Process.generatePDF(args);
     };
 
     b.element().addEventListener("click", f, false);
@@ -140,6 +143,12 @@ var GUI = (function (){
     panel.appendChild(_head().element());
     panel.appendChild(_form().element());
     panel.appendChild(_acceptButton().element());
+
+    // var form = panel.children[1];
+    // var f = function(input){
+    //   return input.value = "testing, attention please";
+    // };
+    // HOF.map(f, form);
 
     XHR.get("http://127.0.0.1:5000/get");
   };
