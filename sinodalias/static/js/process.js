@@ -19,8 +19,13 @@ var Process = (function(){
     return HOF.reduce({}, f, _getInputs());
   };
 
+  var _generatePDF = function(register){
+    PDF.open(register);
+  };
+
   return {
     "getInputs" : _getInputs,
-    "buildRegister" : _buildRegister
+    "buildRegister" : _buildRegister,
+    "generatePDF" : _generatePDF
   };
 })();
