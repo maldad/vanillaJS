@@ -3,7 +3,7 @@ import datetime
 import database
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
@@ -13,7 +13,8 @@ def post():
     print "POST: ", now.strftime("%Y/%m/%d %H:%M")
     jsonData = request.get_json()
     print jsonData['fecha'], jsonData['folio'],jsonData['nombre'],jsonData['matricula'],jsonData['carrera'],jsonData['concepto'],jsonData['nivel'],jsonData['numero'],jsonData['letra']
-    return "this was a post"
+    database.insertRegister(jsonData)
+    return index()
 
 @app.route('/get', methods=['GET'])
 def get():

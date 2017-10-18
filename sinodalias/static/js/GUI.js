@@ -55,8 +55,7 @@ var GUI = (function (){
         .setId("ifolio")
         .addClass("pure-input-1-2")
         .setAttribute("name", "folio")
-        .setAttribute("readonly", "")
-        .setAttribute("placeholder", "Folio:").element());
+        .setAttribute("readonly", "").element());
 
     form.appendChild(HTML.newElement("input")
         .addClass("pure-input-3-4")
@@ -136,6 +135,7 @@ var GUI = (function (){
   };
 
   var _createGui = function(){
+    console.log("creating the GUI");
     var panel = _getElement("mainPanel");
     panel.appendChild(_head().element());
     panel.appendChild(_form().element());
@@ -155,7 +155,7 @@ var GUI = (function (){
   var _setFolio = function(folio){
     var inputFolio = _getElement("form1").children[1];
     var fol = parseInt(folio);
-    inputFolio.value = "Folio: " + _fillFolio(fol + 1);
+    inputFolio.value = _fillFolio(fol + 1);
   };
 
   return{
