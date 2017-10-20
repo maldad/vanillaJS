@@ -5,7 +5,11 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    number_of_records = database.queryAll()
+    if(number_of_records >= 18):
+        return "no more records are allowed, yet :)"
+    else:
+        return render_template('index.html')
 
 @app.route('/post', methods=['POST'])
 def post():

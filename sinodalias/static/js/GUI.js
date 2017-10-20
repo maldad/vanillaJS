@@ -47,11 +47,12 @@ var GUI = (function (){
       .setId("form1")
       .addClass("pure-form");
 
-
+    var d = new Date();
     form.appendChild(HTML.newElement("input")
         .addClass("pure-input-1-2")
         .setAttribute("name", "fecha")
-        .setAttribute("placeholder", "Fecha:").element());
+        .setAttribute("value", "dd/"+ (d.getMonth() + 1) + "/" + d.getFullYear())
+        .setAttribute("placeholder", "Fecha: dd/mm/aa").element());
 
     form.appendChild(HTML.newElement("input")
         .setId("ifolio")
@@ -106,6 +107,7 @@ var GUI = (function (){
     form.appendChild(HTML.newElement("input")
         .addClass("pure-input-1-3")
         .setAttribute("name", "numero")
+        .setAttribute("type", "number")
         .setAttribute("placeholder", "Cantidad con número").element());
 
     form.appendChild(HTML.newElement("input")
